@@ -63,7 +63,7 @@ const AnimatedElement = ({
     ...selectedAnimation,
     visible: {
       ...selectedAnimation.visible,
-      transition: selectedAnimation.visible.transition 
+      transition: selectedAnimation.visible.transition
         ? {
             ...selectedAnimation.visible.transition,
             delay

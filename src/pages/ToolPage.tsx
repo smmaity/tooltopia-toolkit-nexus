@@ -9,8 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
-// Import image tool components
+// Import tool components
 import imageTools from "@/components/tools/image";
+import pdfTools from "@/components/tools/pdf";
 
 const ToolPage = () => {
   const { categoryId, toolId } = useParams();
@@ -50,6 +51,11 @@ const ToolPage = () => {
   const renderToolContent = () => {
     if (categoryId === "image" && toolId && imageTools[toolId]) {
       const ToolComponent = imageTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    if (categoryId === "pdf" && toolId && pdfTools[toolId]) {
+      const ToolComponent = pdfTools[toolId];
       return <ToolComponent />;
     }
     
