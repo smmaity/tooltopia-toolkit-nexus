@@ -5,14 +5,21 @@ import { toolCategories, ToolCategory } from "@/data/tools";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import AnimatedElement from "@/components/animated-element";
+import { useNavigate } from "react-router-dom";
 
 const ToolsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<ToolCategory | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleToolCardClick = (category: ToolCategory) => {
     setSelectedCategory(category);
     setDialogOpen(true);
+  };
+
+  const handleSubToolClick = (categoryId: string, toolId: string) => {
+    setDialogOpen(false);
+    navigate(`/tools/${categoryId}/${toolId}`);
   };
 
   return (
@@ -59,6 +66,7 @@ const ToolsSection = () => {
                 <div 
                   key={tool.id}
                   className="p-4 border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer"
+                  onClick={() => handleSubToolClick(selectedCategory.id, tool.id)}
                 >
                   <h3 className="font-medium">{tool.title}</h3>
                   {tool.description && (
