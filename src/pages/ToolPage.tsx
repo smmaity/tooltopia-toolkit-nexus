@@ -12,6 +12,8 @@ import { cn } from "@/lib/utils";
 // Import tool components
 import imageTools from "@/components/tools/image";
 import pdfTools from "@/components/tools/pdf";
+import calculatorTools from "@/components/tools/calculator";
+import conversionTools from "@/components/tools/conversion";
 
 const ToolPage = () => {
   const { categoryId, toolId } = useParams();
@@ -56,6 +58,16 @@ const ToolPage = () => {
     
     if (categoryId === "pdf" && toolId && pdfTools[toolId]) {
       const ToolComponent = pdfTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    if (categoryId === "calculator" && toolId && calculatorTools[toolId]) {
+      const ToolComponent = calculatorTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    if (categoryId === "conversion" && toolId && conversionTools[toolId]) {
+      const ToolComponent = conversionTools[toolId];
       return <ToolComponent />;
     }
     
