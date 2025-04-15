@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
+// Import image tool components
+import imageTools from "@/components/tools/image";
+
 const ToolPage = () => {
   const { categoryId, toolId } = useParams();
   const [category, setCategory] = useState<ToolCategory | null>(null);
@@ -43,6 +46,23 @@ const ToolPage = () => {
     );
   }
 
+  // Render the tool component dynamically based on category and tool ID
+  const renderToolContent = () => {
+    if (categoryId === "image" && toolId && imageTools[toolId]) {
+      const ToolComponent = imageTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    // Fallback for tools that haven't been implemented yet
+    return (
+      <div className="bg-muted/40 border rounded-xl p-6">
+        <p className="text-center text-muted-foreground">
+          Tool content for {subTool.title} will be implemented here.
+        </p>
+      </div>
+    );
+  };
+
   const Icon = category.icon;
 
   return (
@@ -70,11 +90,7 @@ const ToolPage = () => {
           )}
         </div>
         
-        <div className="bg-muted/40 border rounded-xl p-6">
-          <p className="text-center text-muted-foreground">
-            Tool content for {subTool.title} will be implemented here.
-          </p>
-        </div>
+        {renderToolContent()}
       </main>
       <Footer />
     </div>
