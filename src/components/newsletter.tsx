@@ -2,30 +2,22 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
-  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate email
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
+      toast.error("Please enter a valid email address.");
       return;
     }
     
     // Here you would typically send the email to your API
-    toast({
-      title: "Success!",
-      description: "You've been subscribed to our newsletter.",
-    });
+    toast.success("You've been subscribed to our newsletter!");
     
     setEmail("");
   };
