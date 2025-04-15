@@ -45,7 +45,12 @@ const animations = {
   },
   none: {
     hidden: { opacity: 1 },
-    visible: { opacity: 1 }
+    visible: { 
+      opacity: 1,
+      transition: {
+        duration: 0
+      }
+    }
   }
 };
 
@@ -63,12 +68,10 @@ const AnimatedElement = ({
     ...selectedAnimation,
     visible: {
       ...selectedAnimation.visible,
-      transition: selectedAnimation.visible.transition
-        ? {
-            ...selectedAnimation.visible.transition,
-            delay
-          }
-        : { delay }
+      transition: {
+        ...(selectedAnimation.visible.transition || {}),
+        delay
+      }
     }
   };
 
