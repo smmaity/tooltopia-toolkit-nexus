@@ -61,6 +61,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				tooltopia: {
+					purple: {
+						DEFAULT: '#9b87f5',
+						dark: '#1A1F2C',
+						light: '#D6BCFA',
+						secondary: '#7E69AB',
+						tertiary: '#6E59A5',
+						vivid: '#8B5CF6'
+					},
+					gray: {
+						DEFAULT: '#8E9196',
+						light: '#F1F0FB',
+						dark: '#403E43',
+						charcoal: '#221F26'
+					},
+					soft: {
+						green: '#F2FCE2',
+						yellow: '#FEF7CD',
+						orange: '#FEC6A1',
+						purple: '#E5DEFF',
+						pink: '#FFDEE2',
+						peach: '#FDE1D3',
+						blue: '#D3E4FD'
+					}
 				}
 			},
 			borderRadius: {
@@ -84,11 +109,39 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(10px)"
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)"
+					}
+				},
+				'scale-in': {
+					"0%": {
+						transform: "scale(0.95)",
+						opacity: "0"
+					},
+					"100%": {
+						transform: "scale(1)",
+						opacity: "1"
+					}
+				},
+				'slide-in-right': {
+					"0%": { transform: "translateX(100%)" },
+					"100%": { transform: "translateX(0)" }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'scale-in': 'scale-in 0.2s ease-out',
+				'slide-in-right': 'slide-in-right 0.3s ease-out',
+				'enter': 'fade-in 0.3s ease-out, scale-in 0.2s ease-out'
 			}
 		}
 	},
