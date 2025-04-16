@@ -14,6 +14,10 @@ import imageTools from "@/components/tools/image";
 import pdfTools from "@/components/tools/pdf";
 import calculatorTools from "@/components/tools/calculator";
 import conversionTools from "@/components/tools/conversion";
+import qrTools from "@/components/tools/qr";
+import passwordTools from "@/components/tools/password";
+import colorTools from "@/components/tools/color";
+import unitTools from "@/components/tools/unit";
 
 const ToolPage = () => {
   const { categoryId, toolId } = useParams();
@@ -68,6 +72,26 @@ const ToolPage = () => {
     
     if (categoryId === "conversion" && toolId && conversionTools[toolId]) {
       const ToolComponent = conversionTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    if (categoryId === "qr" && toolId && qrTools[toolId]) {
+      const ToolComponent = qrTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    if (categoryId === "password" && toolId && passwordTools[toolId]) {
+      const ToolComponent = passwordTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    if (categoryId === "color" && toolId && colorTools[toolId]) {
+      const ToolComponent = colorTools[toolId];
+      return <ToolComponent />;
+    }
+    
+    if (categoryId === "unit" && toolId && unitTools[toolId]) {
+      const ToolComponent = unitTools[toolId];
       return <ToolComponent />;
     }
     
