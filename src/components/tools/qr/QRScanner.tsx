@@ -109,7 +109,7 @@ const QRScanner = () => {
         </Card>
       </div>
       
-      <style jsx>{`
+      <style>{`
         @keyframes scan {
           0% { transform: translateY(0); }
           50% { transform: translateY(224px); }

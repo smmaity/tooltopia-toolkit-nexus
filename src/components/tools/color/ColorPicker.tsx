@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -435,7 +434,15 @@ const ColorPicker = () => {
         </Card>
       </div>
       
-      <style jsx>{`
+      <style>{`
+        @keyframes scan {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(224px); }
+          100% { transform: translateY(0); }
+        }
+        .animate-scan {
+          animation: scan 3s infinite;
+        }
         .hue-range {
           background: linear-gradient(
             to right,
