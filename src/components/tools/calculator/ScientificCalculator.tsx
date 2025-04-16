@@ -291,7 +291,7 @@ const ScientificCalculator = () => {
                 <Button variant="outline" onClick={handleDecimal}>
                   .
                 </Button>
-                <Button variant="primary" onClick={handleEquals}>
+                <Button variant="default" onClick={handleEquals}>
                   =
                 </Button>
               </div>
@@ -347,7 +347,7 @@ const ScientificCalculator = () => {
                 <Button variant="outline" onClick={handleBackspace}>
                   ←
                 </Button>
-                <Button variant="primary" onClick={handleEquals}>
+                <Button variant="default" onClick={handleEquals}>
                   =
                 </Button>
               </div>

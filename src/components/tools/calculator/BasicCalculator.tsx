@@ -161,7 +161,7 @@ const BasicCalculator = () => {
             <Button variant="outline" onClick={handleDecimal}>
               .
             </Button>
-            <Button variant="primary" onClick={handleEquals}>
+            <Button variant="default" onClick={handleEquals}>
               =
             </Button>
           </div>
